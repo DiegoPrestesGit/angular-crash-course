@@ -1,0 +1,33 @@
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+
+interface TodoData {
+  title: string;
+  completed: boolean;
+}
+
+@Component({
+  selector: 'app-add-todo',
+  templateUrl: './add-todo.component.html',
+  styleUrls: ['./add-todo.component.css']
+})
+
+export class AddTodoComponent implements OnInit {
+  @Output() addTodo: EventEmitter<any> = new EventEmitter();
+
+  title: string;
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  onSubmit(): void{
+    const todo: TodoData = {
+      title: this.title,
+      completed: false,
+    };
+
+    this.addTodo.emit(todo);
+  }
+
+}
