@@ -30,13 +30,13 @@ export class TodoItemComponent implements OnInit {
     return classes;
   }
 
-  onToggle(todo): void {
+  onToggle(todo: Todo): void {
     todo.completed = !todo.completed;
 
     this.todoService.toggleCompleted(todo).subscribe();
   }
 
-  onDelete(todo): void {
+  onDelete(todo: Todo): void {
     this.deleteTodo.emit(todo);
   }
 
